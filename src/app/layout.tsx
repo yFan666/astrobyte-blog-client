@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { SITE_NAME, SITE_DESCRIPTION } from '@/lib/env';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Astrobyte Blog',
-  description: 'A modern blog platform',
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

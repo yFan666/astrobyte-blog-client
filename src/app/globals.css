@@ -98,14 +98,14 @@
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
   --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.922 0 0);
+  --sidebar-primary-foreground: oklch(0.205 0 0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
@@ -118,5 +118,79 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
   }
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
+}
+
+/* 选中文本样式 */
+::selection {
+  @apply bg-primary text-primary-foreground;
+}
+
+/* 链接样式 */
+a {
+  @apply text-primary hover:text-primary/80 transition-colors;
+}
+
+/* 图片样式 */
+img {
+  @apply select-none;
+}
+
+/* 输入框样式 */
+input,
+textarea {
+  @apply bg-background text-foreground;
+}
+
+/* 禁用状态样式 */
+.disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+/* 动画过渡 */
+.transition-all {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+/* 响应式容器 */
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+}
+
+/* 卡片样式 */
+.card {
+  @apply bg-card text-card-foreground rounded-lg border shadow-sm;
+}
+
+/* 按钮基础样式 */
+.btn {
+  @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors 
+         focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring 
+         disabled:pointer-events-none disabled:opacity-50;
+}
+
+/* 暗色模式切换动画 */
+.dark {
+  @apply transition-colors duration-200;
 }
