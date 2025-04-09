@@ -1,20 +1,29 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { SITE_NAME, SITE_DESCRIPTION } from '@/lib/env';
+import Header from '@/components/Header';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: SITE_NAME,
-  description: SITE_DESCRIPTION,
+  title: 'Astrobyte Blog',
+  description: 'A modern blog platform',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="zh">
+    <html lang="zh" className="dark scroll-smooth" suppressHydrationWarning>
       <body className={inter.className}>
-        <main className="container mx-auto py-8">{children}</main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <main className="container mx-auto px-4">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
