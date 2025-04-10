@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Mulish } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import { ThemeProvider } from '@/components/theme-provider';
 
-const inter = Inter({ subsets: ['latin'] });
+const mulish = Mulish({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Astrobyte Blog',
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh" className="dark scroll-smooth" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${mulish.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           disableTransitionOnChange
         >
           <Header />
-          <main className="container mx-auto px-4">{children}</main>
+          <main className="container mx-auto px-2">{children}</main>
         </ThemeProvider>
       </body>
     </html>

@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
     domains: ['your-image-domain.com'],
     // 支持的图片格式，优先使用现代格式
     formats: ['image/avif', 'image/webp'],
+    remotePatterns: [{ protocol: 'https', hostname: 'img.k2r2.com' }],
   },
 
   // 实验性功能配置

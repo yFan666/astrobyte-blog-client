@@ -10,16 +10,18 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { ModeToggle } from '@/components/theme-mode';
+import Image from 'next/image';
 const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-sm border-b z-50">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="container mx-auto px-2 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-            Astrobyte
-          </span>
-        </Link>
+        <Image
+          src="https://img.k2r2.com/uploads/frombd/0/253/1855151901/3170262641.jpg"
+          width={32}
+          height={32}
+          alt="logo"
+        ></Image>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
